@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Genre: {{ genre.name }}</h1>
+    <h3>Books in this Genre:</h3>
+    <ul>
+        {% for book in genre.book_set.all %}
+            <li><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
